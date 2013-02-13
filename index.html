@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="wrapper.js"></script>
+    <script src="master.js"></script>
+    <script>
+        var funcs = {
+            first: function () {
+                var start = Date.now();
+                while (Date.now() - start < 5000);
+                return 1;
+            },
+            second: function () {
+                var start = Date.now();
+                while (Date.now() - start < 5000);
+                return 2;
+            }
+        };
+
+        var scheduler = new Scheduler(4);
+
+        console.time('scheduler');
+        scheduler.executeMany(funcs, function (results) {
+            console.log(results);
+            console.timeEnd('scheduler');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
