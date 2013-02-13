@@ -34,12 +34,13 @@ Scheduler.prototype = {
             leftCount;
 
         function innerCallback(result, worker) {
-            scheduler.freeWorkers.push(worker);
             console.log(this.id, result, results, results.length, scheduler.freeWorkers.length);
             results[this.id] = result;
             if (--leftCount === 0) {
                 callback.call(scheduler, results);
             }
+            scheduler.freeWorkers.push(worker);
+            scheduler.flush();
         }
 
         if (funcs instanceof Array) {

@@ -5,18 +5,14 @@
     <script src="wrapper.js"></script>
     <script src="master.js"></script>
     <script>
-        var funcs = {
-            first: function () {
+        var funcs = [];
+        for (var i = 0; i < 10; i++) {
+            funcs.push(function() {
                 var start = Date.now();
                 while (Date.now() - start < 5000);
-                return 1;
-            },
-            second: function () {
-                var start = Date.now();
-                while (Date.now() - start < 5000);
-                return 2;
-            }
-        };
+                return start;
+            });
+        }
 
         var scheduler = new Scheduler(4);
 
