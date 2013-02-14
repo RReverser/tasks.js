@@ -9,7 +9,7 @@ new WorkerWrapper()
         } else {
             if (message.vars) {
                 Object.getOwnPropertyNames(message.vars).forEach(function (varName) {
-                    this[varName] = message.vars[varName];
+                    self[varName] = message.vars[varName];
                 });
             } else {
                 if (message.scripts) {
