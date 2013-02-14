@@ -48,12 +48,27 @@ Scheduler.prototype = {
      * @param {WorkerWrapper} [exactWorker]
      */
     setVars: function (vars, exactWorker) {
-        var workers = exactWorker ? [exactWorker] : this.workers;
+        var workers = exactWorker ? [exactWorker] : this.workers,
+            message = {
+                vars: vars
+            };
 
         workers.forEach(function (worker) {
-            worker.send({
-                vars: vars
-            });
+            worker.send(message);
+        });
+    },
+
+    /**
+     * Imports given scripts to all workers.
+     * @param {...String} [scriptN]
+     */
+    importScripts: function (scriptN) {
+        var message = {
+            scripts: Array.prototype.slice.call(arguments)
+        };
+
+        this.workers.forEach(function (worker) {
+            worker.send(message);
         });
     },
 

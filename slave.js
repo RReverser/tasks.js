@@ -11,6 +11,10 @@ new WorkerWrapper()
                 Object.getOwnPropertyNames(message.vars).forEach(function (varName) {
                     this[varName] = message.vars[varName];
                 });
+            } else {
+                if (message.scripts) {
+                    importScripts.apply(self, message.scripts);
+                }
             }
         }
     });
