@@ -23,6 +23,22 @@ Scheduler.prototype = {
         this.tasks.push(task);
     },
 
+    setVar: function (name, value, exactWorker) {
+        var vars = {};
+        vars[name] = value;
+        this.setVars(vars, exactWorker);
+    },
+
+    setVars: function (vars, exactWorker) {
+        var workers = exactWorker ? [exactWorker] : this.workers;
+
+        workers.forEach(function (worker) {
+            worker.send({
+                vars: vars
+            });
+        });
+    },
+
     execute: function (task) {
         this.schedule(task);
         this.flush();
@@ -34,7 +50,7 @@ Scheduler.prototype = {
             leftCount;
 
         function innerCallback(result, worker) {
-            console.log(this.id, result, results, results.length, scheduler.freeWorkers.length);
+            // console.log(this.id, result, results, results.length, scheduler.freeWorkers.length);
             results[this.id] = result;
             if (--leftCount === 0) {
                 callback.call(scheduler, results);

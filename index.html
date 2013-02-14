@@ -5,22 +5,36 @@
     <script src="wrapper.js"></script>
     <script src="master.js"></script>
     <script>
-        var funcs = [];
-        for (var i = 0; i < 10; i++) {
-            funcs.push(function() {
-                var start = Date.now();
-                while (Date.now() - start < 5000);
-                return start;
-            });
-        }
-
         var scheduler = new Scheduler(4);
 
-        console.time('scheduler');
-        scheduler.executeMany(funcs, function (results) {
-            console.log(results);
-            console.timeEnd('scheduler');
+        // settings some global var for all workers
+        scheduler.setVar('prefix', 'result-');
+
+        // setting specific global variable in each worker
+        scheduler.workers.forEach(function (worker, index) {
+            scheduler.setVar('index', index, worker);
         });
+
+        // same task for everybody - just for demo purposes
+        function workerTask() {
+            var start = Date.now();
+            while (Date.now() - start < 5000);
+            return prefix + index;
+        }
+
+        console.time('tasks');
+        scheduler.executeMany(
+            {
+                first: workerTask,
+                second: workerTask,
+                third: workerTask,
+                fourth: workerTask
+            },
+            function (results) {
+                console.timeEnd('tasks');
+                console.log(results);
+            }
+        );
     </script>
 </head>
 <body>
