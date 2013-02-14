@@ -7,28 +7,46 @@ function Scheduler(slavesNumber) {
     this.tasks = [];
     this.workers = [];
     for (var i = 0; i < slavesNumber; i++) {
-        this.workers.push(new WorkerWrapper(new Worker('slave.js')));
+        this.workers.push(new WorkerWrapper('slave.js'));
     }
     this.freeWorkers = this.workers.slice();
 }
 
 Scheduler.prototype = {
+    /**
+     * Starts execution of scheduled tasks.
+     */
     flush: function () {
         while (this.tasks.length && this.freeWorkers.length) {
             this.tasks.shift().sendTo(this.freeWorkers.pop());
         }
     },
 
+    /**
+     * Schedules a task for later execution.
+     * @param {Scheduler.Task} task
+     */
     schedule: function (task) {
         this.tasks.push(task);
     },
 
+    /**
+     * Sets JSONable variable in all or exact given worker.
+     * @param {String} name
+     * @param {*} value
+     * @param {WorkerWrapper} [exactWorker]
+     */
     setVar: function (name, value, exactWorker) {
         var vars = {};
         vars[name] = value;
         this.setVars(vars, exactWorker);
     },
 
+    /**
+     * Sets JSONable variables in all or exact given worker.
+     * @param {Object} vars
+     * @param {WorkerWrapper} [exactWorker]
+     */
     setVars: function (vars, exactWorker) {
         var workers = exactWorker ? [exactWorker] : this.workers;
 
@@ -39,11 +57,20 @@ Scheduler.prototype = {
         });
     },
 
+    /**
+     * Sends given task for execution immediately.
+     * @param {Scheduler.Task} task
+     */
     execute: function (task) {
         this.schedule(task);
         this.flush();
     },
 
+    /**
+     * Sends given task collection (array or hashmap) for execution and returns result in the same style.
+     * @param {Function[]|Object} funcs
+     * @param {Function} callback
+     */
     executeMany: function (funcs, callback) {
         var scheduler = this,
             results,
@@ -99,16 +126,20 @@ Scheduler.Task = function (id, func, callback) {
 };
 
 Scheduler.Task.prototype = {
-    toMessage: function () {
-        return {
-            func: this.func.toString()
-        };
-    },
-
+    /**
+     * Sends task for execution to given worker.
+     * @param {WorkerWrapper} worker
+     */
     sendTo: function (worker) {
         var task = this;
-        worker.send(this.toMessage(), function (data) {
-            task.callback(data.result, this);
-        });
+
+        worker.send(
+            {
+                func: this.func.toString()
+            },
+            function (data) {
+                task.callback(data.result, this);
+            }
+        );
     }
 };
