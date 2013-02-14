@@ -35,14 +35,14 @@ WorkerWrapper.prototype = {
     send: function (message, callback) {
         if (callback instanceof Function) {
             var msgHandler = this.addMessageHandler(function (response) {
-                if (response.replyTo !== message.id) return;
+                if (response.__replyTo__ !== message.__id__) return;
 
                 this.removeMessageHandler(msgHandler);
                 callback.call(this, response);
             });
         }
 
-        message.id = WorkerWrapper.__increment__++;
+        message.__id__ = WorkerWrapper.__increment__++;
 
         this._worker.postMessage(message);
     },
@@ -55,7 +55,7 @@ WorkerWrapper.prototype = {
      * @private
      */
     _replyTo: function (message, response, callback) {
-        response.replyTo = message.id;
+        response.__replyTo__ = message.__id__;
         this.send(response, callback);
     },
 
