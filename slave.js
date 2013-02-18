@@ -4,7 +4,7 @@ new WorkerWrapper()
     .addMessageHandler(function (message) {
         if (message.func) {
             message.reply({
-                result: new Function('return ' + message.func)().call(this)
+                result: new Function('return ' + message.func)().apply(this, message.args)
             });
         } else {
             if (message.vars) {

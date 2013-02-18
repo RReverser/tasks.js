@@ -22,7 +22,7 @@
         function workerTask() {
             var start = Date.now();
             while (Date.now() - start < 5000);
-            return prefix + index + suffix;
+            return prefix + index + (arguments.length ? ' (' + Array.prototype.join.call(arguments) + ')' : '') + suffix;
         }
 
         console.time('tasks');
@@ -35,6 +35,21 @@
             },
             function (results) {
                 console.timeEnd('tasks');
+                console.log(results);
+            }
+        );
+
+        console.time('args');
+        scheduler.executeForMany(
+            workerTask,
+            {
+                first: [1, 2, 3],
+                second: [4, 5, 6],
+                third: [7, 8, 9],
+                fourth: [10, 11, 12]
+            },
+            function (results) {
+                console.timeEnd('args');
                 console.log(results);
             }
         );

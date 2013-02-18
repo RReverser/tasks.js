@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" name="Default" comment="" />
+    <list default="true" id="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master.js" afterPath="$PROJECT_DIR$/master.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave.js" afterPath="$PROJECT_DIR$/slave.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="threads.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/slave.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1360773863301" ignored="false" />
+    <file path="/slave.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1361198259220" ignored="false" />
     <file path="/wrapper.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1360679196879" ignored="false" />
-    <file path="/master.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1360776708953" ignored="false" />
-    <file path="/index.html" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1360776797018" ignored="false" />
+    <file path="/master.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1361199598903" ignored="false" />
+    <file path="/index.html" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1361199735725" ignored="false" />
     <file path="/fragment.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1360772192763" ignored="false" />
+    <file path="/Dummy.txt" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1361196611954" ignored="false" />
+    <file path="/array.js" changelist="abd066d4-dedd-4c8c-bc1c-86b5bbfa0a19" time="1361199982044" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +39,7 @@
       <file leaf-file-name="slave.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slave.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="7" selection-start="213" selection-end="213" vertical-scroll-proportion="0.0">
+            <state line="9" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -40,7 +48,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="491" selection-end="491" vertical-scroll-proportion="0.4264214">
+            <state line="40" column="0" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.7884363">
               <folding />
             </state>
           </provider>
@@ -49,7 +57,7 @@
       <file leaf-file-name="master.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/master.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+            <state line="194" column="13" selection-start="5297" selection-end="5297" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,7 +66,7 @@
       <file leaf-file-name="wrapper.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrapper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="7" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+            <state line="22" column="7" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,23 +79,32 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
         <option value="localhost:4567/threads/master.js" />
-        <option value="$PROJECT_DIR$/slave.js" />
         <option value="$PROJECT_DIR$/wrapper.js" />
+        <option value="$PROJECT_DIR$/slave.js" />
         <option value="$PROJECT_DIR$/master.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/array.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
+    <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="height" value="1174" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -121,6 +138,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -129,14 +156,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="web.server" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" promptOnRemoteOverwrite="CHECK_TIMESTAMP" serverName="Node Static" serverId="62bde895-8075-4050-a3c1-2bd6535810ba" autoUpload="true" autoUploadExternalChanges="true">
     <servers>
@@ -205,6 +232,7 @@
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
     <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
@@ -216,15 +244,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23055555" sideWeight="0.99051136" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23011364" sideWeight="0.99051136" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13705851" sideWeight="0.6018519" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39814815" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10226674" sideWeight="0.7698864" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39751554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -275,6 +303,8 @@
     <option name="LIMIT_HISTORY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -288,6 +318,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
@@ -312,6 +343,34 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/slave.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slave.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="7" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
@@ -345,30 +404,30 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slave.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="213" selection-end="213" vertical-scroll-proportion="0.0">
+        <state line="9" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/master.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wrapper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="7" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+        <state line="194" column="13" selection-start="5297" selection-end="5297" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="491" selection-end="491" vertical-scroll-proportion="0.4264214">
+        <state line="40" column="0" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.7884363">
           <folding />
         </state>
       </provider>

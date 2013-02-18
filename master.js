@@ -106,7 +106,7 @@ Scheduler.prototype = {
             leftCount = funcs.length;
 
             funcs.forEach(function (func, index) {
-                scheduler.schedule(new Scheduler.Task(index, func, innerCallback));
+                scheduler.schedule(new Scheduler.Task(index, func, null, innerCallback));
             });
         } else {
             results = {};
@@ -114,7 +114,48 @@ Scheduler.prototype = {
             leftCount = keys.length;
 
             keys.forEach(function (key) {
-                scheduler.schedule(new Scheduler.Task(key, funcs[key], innerCallback));
+                scheduler.schedule(new Scheduler.Task(key, funcs[key], null, innerCallback));
+            });
+        }
+
+        this.flush();
+    },
+
+    /**
+     * Sends given task with argument sets for execution and returns result in the same style.
+     * @param {Function} func
+     * @param {Array[]|Object} argSets
+     * @param {Function} callback
+     */
+    executeForMany: function (func, argSets, callback) {
+        var scheduler = this,
+            results,
+            leftCount;
+
+        function innerCallback(result, worker) {
+            // console.log(this.id, result, results, results.length, scheduler.freeWorkers.length);
+            results[this.id] = result;
+            if (--leftCount === 0) {
+                callback.call(scheduler, results);
+            }
+            scheduler.freeWorkers.push(worker);
+            scheduler.flush();
+        }
+
+        if (argSets instanceof Array) {
+            results = new Array(argSets.length);
+            leftCount = argSets.length;
+
+            argSets.forEach(function (args, index) {
+                scheduler.schedule(new Scheduler.Task(index, func, args, innerCallback));
+            });
+        } else {
+            results = {};
+            var keys = Object.getOwnPropertyNames(argSets);
+            leftCount = keys.length;
+
+            keys.forEach(function (key) {
+                scheduler.schedule(new Scheduler.Task(key, func, argSets[key], innerCallback));
             });
         }
 
@@ -126,10 +167,11 @@ Scheduler.prototype = {
  * Task instance
  * @param {String|Number} [id]
  * @param {Function} func
+ * @param {Array} args
  * @param {Function} callback
  * @constructor
  */
-Scheduler.Task = function (id, func, callback) {
+Scheduler.Task = function (id, func, args, callback) {
     if (!(id instanceof Function)) {
         this.id = id;
     } else {
@@ -137,6 +179,7 @@ Scheduler.Task = function (id, func, callback) {
         func = id;
     }
     this.func = func;
+    this.args = args;
     this.callback = callback;
 };
 
@@ -150,7 +193,8 @@ Scheduler.Task.prototype = {
 
         worker.send(
             {
-                func: this.func.toString()
+                func: this.func.toString(),
+                args: this.args
             },
             function (data) {
                 task.callback(data.result, this);
