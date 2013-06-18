@@ -6,9 +6,10 @@ Convenient task scheduler for JavaScript using Web Workers.
 Usage (check index.html for demo):
 
 ```javascript
-var scheduler = new Scheduler(4);
+ // setting worker count to 4
+ var scheduler = new Scheduler(4);
 
- // settings some global var for all workers
+ // settings common global var for all workers
  scheduler.setVar('prefix', 'result-');
 
  // setting specific global variable in each worker
