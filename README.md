@@ -3,56 +3,53 @@ tasks.js
 
 Convenient task scheduler for JavaScript using Web Workers.
 
-Usage (check index.html for demo):
+Supposed usage (not working, TBD in this branch):
 
 ```javascript
- // setting worker count to 4
- var scheduler = new Scheduler(4);
+// sets thread count (each thread object
+// accessible via threads[i])
+parallel.threads.length = 4;
 
- // settings common global var for all workers
- scheduler.setVar('prefix', 'result-');
+var a = new Array(n), m = 0;
 
- // setting specific global variable in each worker
- scheduler.workers.forEach(function (worker, index) {
-     scheduler.setVar('index', index, worker);
- });
+function currentSum() {
+  return a.reduce(function (x, y) {
+    return x + y;
+  }, 0);
+}
 
- // importing external scripts
- scheduler.importScripts('test.js');
+// frequently modified variable
+setInterval(function () {
+  m++;
+}, 100);
 
- // same task for everybody - just for demo purposes
- function workerTask() {
-     var start = Date.now();
-     while (Date.now() - start < 5000);
-     return prefix + index + (arguments.length ? ' (' + Array.prototype.join.call(arguments) + ')' : '') + suffix;
- }
-
- console.time('tasks');
- scheduler.executeMany(
-     {
-         first: workerTask,
-         second: workerTask,
-         third: workerTask,
-         fourth: workerTask
-     },
-     function (results) {
-         console.timeEnd('tasks');
-         console.log(results);
-     }
- );
-
- console.time('args');
- scheduler.executeForMany(
-     workerTask,
-     {
-         first: [1, 2, 3],
-         second: [4, 5, 6],
-         third: [7, 8, 9],
-         fourth: [10, 11, 12]
-     },
-     function (results) {
-         console.timeEnd('args');
-         console.log(results);
-     }
- );
+// executes inner code in web worker
+// with passed `i` value
+for (var i = 0; i < n; i++) parallel:{
+  // in-thread calculation
+  var fact = 1;
+  for (var j = 2; j < i; j++) fact *= j;
+  
+  // modifying external variable
+  // => push changes to main thread
+  // w/o stopping thread
+  a[i] = j;
+  
+  setTimeout(function () {
+    var temp = m;
+    /* temp === 0 since using value
+    from the moment of spawn */
+  }, 1000);
+  
+  setTimeout(function () {
+    var temp = unparallel(m);
+    /* temp contains latest `m` value
+    as fetched from main thread */
+  }, 1000);
+  
+  // calls external function;
+  // stops thread until result is fetched
+  // into local variable
+  var sum = currentSum();
+}
 ```
