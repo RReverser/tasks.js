@@ -33,7 +33,7 @@ for (var i = 0; i < n; i++) parallel:{
   // modifying external variable
   // => push changes to main thread
   // w/o stopping thread
-  a[i] = j;
+  a[i] = fact;
   
   setTimeout(function () {
     var temp = m;
