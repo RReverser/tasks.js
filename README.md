@@ -45,10 +45,22 @@ for (var i = 0; i < n; i++) parallel:{
     var temp = unparallel(m);
     /* temp contains latest `m` value;
     stops thread until current value is fetched */
+    
+    // OR
+    
+    unparallel:var temp = m;
+    /* executes instructions marked by `unparallel` in main thread
+    and returns values into local vars */
   }, 1000);
   
   // calls external function;
   // stops thread until result is fetched
   var sum = currentSum();
+  
+  // OR
+  
+  unparallel: {
+    var sum = currentSum();
+  }
 }
 ```
