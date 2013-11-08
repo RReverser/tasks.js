@@ -43,13 +43,12 @@ for (var i = 0; i < n; i++) parallel:{
   
   setTimeout(function () {
     var temp = unparallel(m);
-    /* temp contains latest `m` value
-    as fetched from main thread */
+    /* temp contains latest `m` value;
+    stops thread until current value is fetched */
   }, 1000);
   
   // calls external function;
   // stops thread until result is fetched
-  // into local variable
   var sum = currentSum();
 }
 ```
